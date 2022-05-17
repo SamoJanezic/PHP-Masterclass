@@ -4,7 +4,7 @@ include('helpers/posts.php');
 
 $id = $_GET['ID'];
 if (!is_numeric($id) || $id > count($posts)-1) {
-    echo "Error: 404, Page not found"; // redirect 404 page
+    header(http_response_code(404)); // redirect to own 404 page
     die();
 } else {
     $id = intval($_GET['ID']);
@@ -45,16 +45,17 @@ if (!is_numeric($id) || $id > count($posts)-1) {
 <div class="container">
   <div class="row"></div>
   <?php
+    $page = $posts[$id];
 
-    echo '<div><img src="'. $posts[$id]['image']['url'] . '" . alt="'. $posts[$id]['image']['alt'] . '"></div>'; //shorter variable
+    echo '<div><img src="'. $page['image']['url'] . '" . alt="'. $page['image']['alt'] . '"></div>'; //shorter variable
 
-    echo "<p>" . $posts[$id]['title'] . "</p>";
+    echo "<p>" . $page['title'] . "</p>";
 
-    echo "<p>" . $posts[$id]['content'] . "</p>";
+    echo "<p>" . $page['content'] . "</p>";
 
-    echo "<p>" . $posts[$id]['authored by'] . "</p>";
+    echo "<p>" . $page['authored by'] . "</p>";
 
-    echo "<p>" . date("d, m, Y", $posts[$id]['authored on']) . "</p>";
+    echo "<p>" . date("d, m, Y", $page['authored on']) . "</p>";
 
   ?>
   </div>
