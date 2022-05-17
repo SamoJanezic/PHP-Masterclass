@@ -30,6 +30,8 @@
     //print_r($fruit_number);
     arsort($fruit_number);
     $k = $array_keys($fruit_number);
+    var_dump($fruit_number);
+    echo $k[0];
 ?>
 </body>
 </html>
