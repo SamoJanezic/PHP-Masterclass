@@ -27,10 +27,10 @@
         'Banana' => 43,
         'Kiwi' => 1
         ];
-    //print_r($fruit_number);
+
     arsort($fruit_number);
-    $k = $array_keys($fruit_number);
-    var_dump($fruit_number);
+    $k = array_keys($fruit_number);
+    //var_dump($k);
     echo $k[0];
 ?>
 </body>
