@@ -4,12 +4,11 @@ include('helpers/posts.php');
 
 $id = $_GET['ID'];
 if (!is_numeric($id) || $id > count($posts)-1) {
-    echo "Error: 404, Page not found";
+    echo "Error: 404, Page not found"; // redirect 404 page
     die();
 } else {
     $id = intval($_GET['ID']);
 }
-
 
 
 ?>
@@ -47,7 +46,7 @@ if (!is_numeric($id) || $id > count($posts)-1) {
   <div class="row"></div>
   <?php
 
-    echo '<div><img src="'. $posts[$id]['image']['url'] . '" . alt="'. $posts[$id]['image']['alt'] . '"></div>';
+    echo '<div><img src="'. $posts[$id]['image']['url'] . '" . alt="'. $posts[$id]['image']['alt'] . '"></div>'; //shorter variable
 
     echo "<p>" . $posts[$id]['title'] . "</p>";
 
@@ -56,8 +55,6 @@ if (!is_numeric($id) || $id > count($posts)-1) {
     echo "<p>" . $posts[$id]['authored by'] . "</p>";
 
     echo "<p>" . date("d, m, Y", $posts[$id]['authored on']) . "</p>";
-
-    echo '<a href=' . "article.php?ID=$id". '>' . 'Preberi Več' . '</a>';
 
   ?>
   </div>
