@@ -1,20 +1,13 @@
 <?php
-include('helpers/posts.php');
-include('inc/functions.php');
-
-$ids = $_GET['ID'];
-
-$page = getPost($ids);
-
-if ($page == FALSE) {
-    header('Location: 404.php'); // redirect to own 404 page
-    die();
-}
-
+/**
+ * Nastavimo ustrezen http header. To lahko preverimo v brskalniku pod network
+ * tab v inspectorju. Kakšen je response code brez nastavljenega headerja in
+ * kakšen je z nastavljenim headerjem.
+ */
+header("HTTP/1.0 404 Not Found");
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<tbody<html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -43,22 +36,11 @@ if ($page == FALSE) {
 </nav>
 <!-- Page content-->
 <div class="container">
-  <div class="row"></div>
-  <?php
-    $page->izpisiNaslov()
-         ->izpisiCeloto();
-
-    // echo '<div><img src="'. $page['image']['url'] . '" . alt="'. $page['image']['alt'] . '"></div>'; //shorter variable
-
-    // echo "<p>" . $page['title'] . "</p>";
-
-    // echo "<p>" . $page['content'] . "</p>";
-
-    // echo "<p>" . $page['authored by'] . "</p>";
-
-    // echo "<p>" . date("d, m, Y", $page['authored on']) . "</p>";
-
-  ?>
+  <div class="row">
+   <div class="col-sm-12">
+     <p>Stran ne obstaja</p>
+     <p><a href="index.php">Vrnitev na prvo stran</p>
+   </div>
   </div>
 </div>
 <!-- Bootstrap core JS-->
@@ -67,3 +49,4 @@ if ($page == FALSE) {
 <script src="js/scripts.js"></script>
 </body>
 </html>
+
